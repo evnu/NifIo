@@ -31,14 +31,14 @@ mod atoms {
     }
 }
 
-struct FileResource {
+pub struct FileResource {
     pub stream: Mutex<BufStream<File>>,
     pub options: FileOpenOptions,
 }
 
 #[derive(NifStruct)]
 #[module = "NifIo.Native.FileOpenOptions"]
-struct FileOpenOptions {
+pub struct FileOpenOptions {
     pub path: String,
     pub read: bool,
     pub write: bool,
@@ -119,4 +119,8 @@ fn read_until<'a>(env: Env<'a>, args: &[Term<'a>]) -> Result<Term<'a>, Error> {
         let _ = binary.as_mut_slice().write_all(&data_out);
         Ok(binary.release(env).encode(env))
     }
+}
+
+pub fn debug_cargo_doc(resource: ResourceArc<FileResource>) {
+    println!("this is just fine..");
 }
