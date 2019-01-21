@@ -7,15 +7,15 @@ extern crate rustler;
 extern crate rustler_codegen;
 
 use std::fs::{File, OpenOptions};
-use std::io::{BufRead, Write};
 use std::io::Error as IoError;
 use std::io::ErrorKind as IoErrorKind;
+use std::io::{BufRead, Write};
 use std::sync::Mutex;
 
 use bufstream::BufStream;
-use rustler::{Env, Term, Error, Encoder};
-use rustler::types::OwnedBinary;
 use rustler::resource::ResourceArc;
+use rustler::types::OwnedBinary;
+use rustler::{Encoder, Env, Error, Term};
 
 mod atoms {
     rustler_atoms! {
@@ -50,11 +50,9 @@ struct FileOpenOptions {
 
 rustler_export_nifs!(
     "Elixir.NifIo.Native",
-    [("open", 1, open_file),
-     ("read_until", 2, read_until)],
+    [("open", 1, open_file), ("read_until", 2, read_until)],
     Some(on_load)
 );
-
 
 fn on_load(env: Env, _info: Term) -> bool {
     resource_struct_init!(FileResource, env);
