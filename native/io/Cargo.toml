@@ -9,7 +9,7 @@ path = "src/lib.rs"
 crate-type = ["dylib"]
 
 [dependencies]
-rustler = { git = "https://github.com/hansihe/rustler", branch = "remove_nif_from_types"}
-rustler_codegen = { git = "https://github.com/hansihe/rustler", branch = "remove_nif_from_types"}
+rustler = "0.18"
+rustler_codegen = "0.18"
 bufstream = "0.1.2"
-lazy_static = "1.0.0"
+lazy_static = "1.2.0"
