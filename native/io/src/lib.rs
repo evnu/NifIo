@@ -9,16 +9,10 @@ use rustler::resource::ResourceArc;
 use rustler::types::OwnedBinary;
 use rustler::{Encoder, Env, Error, Term};
 
-// Include macros
-use lazy_static::lazy_static;
-
-use rustler::rustler_atoms;
 use rustler::{resource_struct_init, rustler_export_nifs};
 use rustler_codegen::NifStruct;
 
 mod atoms {
-    use lazy_static::lazy_static;
-
     use rustler::rustler_atoms;
 
     rustler_atoms! {
