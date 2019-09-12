@@ -17,7 +17,7 @@ defmodule NifIo.Mixfile do
   end
 
   defp deps do
-    [{:rustler, github: "hansihe/rustler", sparse: "rustler_mix"}]
+    [{:rustler, "~> 0.21"}]
   end
 
   defp rustler_crates do
